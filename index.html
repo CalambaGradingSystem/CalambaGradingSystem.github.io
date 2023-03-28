@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>/GRADES CALCULATOR/</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+    background-color: #8D7B68;
+    }
+
+    .flex-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .container .card {
+        height: 85vh;
+        width: 450px;
+        background: #C8B6A6;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    h3 {
+        text-align: center;
+        position: relative;
+        top: 20%;
+        line-height: 50px;
+        font-weight: 500;
+        font-size: 35px;
+        color: #fff;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    }
+    h4 {
+        text-align: center;
+        position: relative;
+        line-height: 15px;
+        font-weight: 100;
+        font-size: 20px;
+        color: #fff;
+        font-family: 'Times New Roman', Times, serif;
+        text-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    }
+
+    .input {
+        margin: 10px 0px;
+    }
+
+    .input input {
+        width: 93%;
+        margin: 10px;
+        height: 20px;
+        outline: none;
+        border: none;
+        font-weight: bold;
+        text-indent: 30px;
+        padding: 3px 5px;
+        color: #000;
+        box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    }
+
+    ::placeholder {
+        font-weight: bold;
+        text-indent: 30px;
+        padding: 3px 5px;
+        color: #000;
+    }
+
+    button {
+        box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+        background-color: #8D7B68;
+        outline: none;
+        border: none;
+        font-weight: bold;
+        padding: 3px 15px;
+        color: #000;
+        margin: 10px 140px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #F1DEC9;
+    }
+
+    p {
+        color: #A4907C;
+        font-weight: bold;
+        padding: 3px 15px;
+        color: #fff;
+        text-align: center;
+
+
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h3>IT2R5 GRADE CALCULATOR</h3>
+        <h4>Hoping for high grades, cutieee!</h4>
+        <div class="flex-box">
+            <div class="card">
+                <div class="input">
+                    <input type="number" id="p" placeholder="PathFit 3">
+                    <input type="number" id="c" placeholder="Life of Rizal">
+                    <input type="number" id="d" placeholder="Ethics">
+                    <input type="number" id="f" placeholder="Systems Integration and Architecture">
+                    <input type="number" id="g" placeholder="Web System">
+                    <input type="number" id="i" placeholder="Networking">
+                    <input type="number" id="k" placeholder="Information Management">
+
+                    <button onclick="calculate()">CALCULATE GRADES</button>
+                    <p id="total"></p>
+                    <p id="average"></p>
+                    <p id="remarks"></p>
+                    <p id="descriptor"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function calculate() {
+        let p = document.getElementById('p').value;
+        let c = document.getElementById('c').value;
+        let d = document.getElementById('d').value;
+        let f = document.getElementById('f').value;
+        let g = document.getElementById('g').value;
+        let i = document.getElementById('i').value;
+        let k = document.getElementById('k').value;
+
+        let total = parseFloat(p) + parseFloat(c) + parseFloat(d) + parseFloat(f) + parseFloat(g) + parseFloat(i) + parseFloat(k);
+        const per = (total / 7);
+        
+        let average = parseFloat(total / 7);
+
+                    if (average >= 100) {
+                        remarks = "DOES NOT EXIST!";
+                        descriptor = "DOES NOT EXIST!";
+                    }
+                    else if (average <= 100 && average >= 90) {
+                        remarks = "PASSED!";
+                        descriptor = "OUTSTANDING!";
+                    }
+                    else if (average <= 89 && average >= 85) {
+                        remarks = "PASSED!";
+                        descriptor = "VERY SATISFACTORY!";
+                    }
+                    else if (average <= 84 && average >= 80) {
+                        remarks = "PASSED!";
+                        descriptor = "SATISFACTORY!";
+                    }
+                    else if (average <= 79 && average >= 75) {
+                        remarks = "PASSED!";
+                        descriptor = "FAIRLY SATISFACTORY!";
+                    }
+                    else if (average <= 75) {
+                        remarks = "FAILED!";
+                        descriptor = "DID NOT MEET EXPECTATIONS!";
+                    }
+                    else {
+                        remarks = "BAWI NEXT TIMEE!";
+                        descriptor = "GOOD LUCK ON YOUR JOURNEY!";
+                    }
+
+                    document.getElementById("total").innerHTML = `Total grade is: ${total}`;
+                    document.getElementById("average").innerHTML = `Average grade is: ${average}`;
+                    document.getElementById("remarks").innerHTML = `Remarks: ${remarks}`;
+                    document.getElementById("descriptor").innerHTML = `Descriptor: ${descriptor}`;
+                }
+
+    
+</script>
+
+</html>
